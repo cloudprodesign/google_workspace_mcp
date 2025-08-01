@@ -70,7 +70,6 @@ from app_instance import app  # 👈 this connects FastAPI to the MCP
 
 server = FastMCP(
     name="google_workspace",
-    app=app,  # 👈 pass the app into FastMCP
     port=WORKSPACE_MCP_PORT,
     host="0.0.0.0"
 )
