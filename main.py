@@ -1,3 +1,19 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def health():
+    return {"status": "ok", "message": "Your MCP is running"}
+
+@app.post("/mcp/list_calendars")
+def list_calendars():
+    return {
+        "calendars": [
+            {"id": "primary", "summary": "Main Calendar"},
+            {"id": "team", "summary": "Team Calendar"}
+        ]
+    }
 import argparse
 import logging
 import os
@@ -181,6 +197,8 @@ def main():
         from auth.oauth_callback_server import cleanup_oauth_callback_server
         cleanup_oauth_callback_server()
         sys.exit(1)
+
+app = server.app  # 👈 REQUIRED so Railway knows what FastAPI app to serve
 
 if __name__ == "__main__":
     main()
