@@ -45,8 +45,7 @@ RUN echo "=== Debug: Listing app directory contents ===" && \
     ls -la /app/main.py && \
     echo "=== Debug: Checking Python path and imports ===" && \
     python -c "import sys; print('Python path:', sys.path)" && \
-    python -c "import core.server; print('Server import successful')" && \
-    echo "=== Debug: Testing health endpoint ===" && \
+    python -c "import core.server; print('Server import successful')"
 
 # Create non-root user for security
 RUN useradd --create-home --shell /bin/bash app \
