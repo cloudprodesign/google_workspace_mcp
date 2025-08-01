@@ -1,25 +1,3 @@
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/")
-def health():
-    return {"status": "ok", "message": "Your MCP is running"}
-
-@app.post("/mcp/list_calendars")
-def list_calendars():
-    return {
-        "calendars": [
-            {"id": "primary", "summary": "Main Calendar"},
-            {"id": "team", "summary": "Team Calendar"}
-        ]
-    }
-import argparse
-import logging
-import os
-import sys
-from importlib import metadata
-
 # Local imports
 from core.server import server, set_transport_mode
 from core.utils import check_credentials_directory_permissions
