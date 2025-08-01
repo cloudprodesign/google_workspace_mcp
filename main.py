@@ -198,7 +198,5 @@ def main():
         cleanup_oauth_callback_server()
         sys.exit(1)
 
-app = server.app  # 👈 REQUIRED so Railway knows what FastAPI app to serve
-
 if __name__ == "__main__":
     main()
