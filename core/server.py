@@ -66,9 +66,11 @@ USER_GOOGLE_EMAIL = os.getenv("USER_GOOGLE_EMAIL", None)
 # Transport mode detection (will be set by main.py)
 _current_transport_mode = "stdio"  # Default to stdio
 
-# Basic MCP server instance
+from main import app  # 👈 this connects FastAPI to the MCP
+
 server = FastMCP(
     name="google_workspace",
+    app=app,  # 👈 pass the app into FastMCP
     port=WORKSPACE_MCP_PORT,
     host="0.0.0.0"
 )
