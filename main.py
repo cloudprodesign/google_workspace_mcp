@@ -1,7 +1,7 @@
 # Local imports
 from core.server import server, set_transport_mode
 from core.utils import check_credentials_directory_permissions
-
+import logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
