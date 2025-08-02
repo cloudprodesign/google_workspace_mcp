@@ -52,9 +52,10 @@ def main():
         'chat', 'forms', 'slides', 'tasks', 'search'
     ])
     parser.add_argument('--transport', choices=['stdio', 'streamable-http'], default='stdio')
+    parser.add_argument('--port', type=int, default=8000, help='Port the server should listen on')  # ✅ added
     args = parser.parse_args()
 
-    port = int(os.getenv("PORT", os.getenv("WORKSPACE_MCP_PORT", 8000)))
+    port = args.port  # ✅ use parsed port
     base_uri = os.getenv("WORKSPACE_MCP_BASE_URI", "http://localhost")
 
     safe_print("🔧 Google Workspace MCP Server")
